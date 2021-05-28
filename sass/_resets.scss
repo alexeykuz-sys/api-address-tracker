@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+$fontFamily: "Rubik";
+
+$fontSize: 18px;
+
+$font-stack: $fontFamily,  Helvetica, sans-serif;
+
+
+* {
+    padding: 0;
+    border: 0;
+  }
+  
+  html{
+    box-sizing: border-box;
+    height: auto;
+    width: auto;
+    overflow-x: hidden;
+  } 
+
+  body{
+  
+  font-family:$font-stack;
+  min-height: 100vh;
+  font-size: $fontSize;
+  background-color: white;
+  overflow-x: hidden;
+
+  }

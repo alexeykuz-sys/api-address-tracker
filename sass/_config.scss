@@ -1,0 +1,69 @@
+$font-weights: (
+  "light":300,
+  "regular": 400,
+  "medium": 500,
+  "bold": 700,
+);
+
+
+@function weight($weight-name) {
+    @return map-get($font-weights, $weight-name);
+}
+
+@function set-text-color($bg-color) {
+@if (lightness($bg-color) > 70) {
+    @return $lightGrayishBlue;
+    } @else {
+        @return white;
+    }
+}
+
+@mixin set-bg-color($bg-color) {
+background-color: $bg-color;
+color: set-text-color($bg-color);
+}
+
+@mixin text($color,$weight,$fontSize, $align) {
+    color: $color;
+    font-weight: weight($weight);
+    font-size: $fontSize;
+    text-align: $align;
+}
+
+@mixin flexBox($display, $direction, $justify, $wrap){
+    display:$display;
+    flex-direction:$direction;
+    justify-content:$justify;
+    flex-wrap: $wrap;
+}
+
+
+  // Media Queries
+  
+  $small:376;
+  $tablet: 768;
+  $large: 1024;
+  $desktop: 1280;
+  
+@mixin small {
+@media (min-width: $small * 1px) {
+    @content;
+    }
+}
+@mixin tablet {
+@media (min-width: $tablet * 1px) {
+    @content;
+    }
+}
+
+@mixin large {
+@media (min-width: $large * 1px) {
+    @content;
+    }
+}
+
+@mixin desktop {
+@media (min-width: $desktop * 1px) {
+    @content;
+    }
+}
