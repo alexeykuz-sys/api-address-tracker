@@ -30,11 +30,11 @@ color: set-text-color($bg-color);
     text-align: $align;
 }
 
-@mixin flexBox($display, $direction, $justify, $wrap){
+@mixin flexBox($display, $direction, $justify, $align){
     display:$display;
     flex-direction:$direction;
     justify-content:$justify;
-    flex-wrap: $wrap;
+    align-items: $align;
 }
 
 

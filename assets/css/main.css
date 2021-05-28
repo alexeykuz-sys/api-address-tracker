@@ -19,6 +19,25 @@ body {
   overflow-x: hidden;
 }
 
+.container-color {
+  background-image: url("/images/pattern-bg.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-color .ip-header {
+  color: white;
+  margin: 40px;
+}
+
+#mapid {
+  height: 180px;
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
