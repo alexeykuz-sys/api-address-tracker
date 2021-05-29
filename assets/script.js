@@ -11,3 +11,9 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 var marker = L.marker([51.5, -0.09]).addTo(mymap);
 
+const searchButton = document.getElementById('search-button');
+const searchInput = document.getElementById('search-input');
+searchButton.addEventListener('click', () => {
+  const inputValue = searchInput.value;
+  alert(inputValue);
+});

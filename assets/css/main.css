@@ -19,36 +19,54 @@ body {
   overflow-x: hidden;
 }
 
-.container-color {
+.top-color {
   background-image: url("/images/pattern-bg.png");
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+.top-color .header-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  padding: 40px 10px;
 }
 
-.container-color .ip-header {
+.top-color .header-wrapper .ip-header {
   color: white;
-  margin: 40px;
+  font-family: "Rubik";
 }
 
-.form-control:focus {
-  box-shadow: none;
+.top-color .header-wrapper .search-bar {
+  justify-content: center;
+  margin: 30px auto;
+  display: block;
+  min-width: 130px;
+  max-width: 700px;
+  flex-wrap: wrap;
 }
 
-.form-control-underlined {
-  border-width: 0;
-  border-bottom-width: 1px;
-  border-radius: 0;
-  padding-left: 0;
+.modal-wrapper {
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  position: absolute;
+  z-index: 999;
 }
 
-.form-control::placeholder {
-  font-size: 0.95rem;
-  color: #aaa;
-  font-style: italic;
+.modal-wrapper .card-modal {
+  width: 250px;
+  height: 250px;
+  border-radius: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-wrapper .card-modal .card-modal-inner {
+  padding: 20px;
 }
 
 #mapid {
