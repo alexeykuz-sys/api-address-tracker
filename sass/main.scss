@@ -38,15 +38,43 @@
     position: absolute;
     z-index: 999;
     & .card-modal{
-        width: 250px;
-        height: 250px;
         border-radius: 20px;
         background-color: white;
-        display: flex;
-        flex-direction: column;
+        
+        box-shadow: 2px 2px 2px 10px rgb(211, 204, 204);
         & .card-modal-inner{
             padding: 20px;
         }
+        & .list-group-modal {
+            display: flex;
+            flex-direction: column;
+            list-style-type: none;
+            padding: 0;
+            @include tablet{
+                flex-direction: row;
+            }
+                & .list-group-modal-item {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: $darkGrey;
+                font-size: $fontSize *0.8;
+                text-transform: uppercase;
+                & span {
+                    color: black;
+                    font-size: $fontSize*1.1;
+                    padding: 10px;
+                    text-transform: capitalize;
+                }
+                &::after{
+                    text-decoration: solid;
+                }
+                
+            }
+            
+        }
+        
     }
 
 }
