@@ -1,13 +1,3 @@
-const searchButton = document.getElementById('search-button');
-const searchInput = document.getElementById('search-input');
-const secret_api = ' ENTER YOUR CODE';
-const bypass_cors_url = 'https://cors-anywhere.herokuapp.com';
-const api_uri = 'https://geo.ipify.org/api/';
-let current_version = 'v1';
-
-
-
-
 var mymap = L.map('mapid').setView([51.505, -0.09], 13);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -21,8 +11,34 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 var marker = L.marker([51.5, -0.09]).addTo(mymap);
 
+let searchIp = document.getElementById('search-ip')
+let searchBtn = document.getElementById('search-button')
+let input
+// function searchRef(){
+//     console.log(searchIp.value)
+//     const inputValue = searchIp.value;
+//     return inputValue
+// }
 
-searchButton.addEventListener('click', () => {
-  const inputValue = searchInput.value;
-  alert(inputValue);
-});
+// searchBtn.addEventListener('click', searchRef)
+
+searchBtn.addEventListener('click', () =>{ let input = searchRef() });
+
+console.log(input)
+
+
+
+var ip = "8.8.8.8";
+    var api_key = "at_hqno4AyaM81PwU3wc5lGtnqVcadHM ";
+    $(function () {
+        $.ajax({
+
+            url: "https://geo.ipify.org/api/v1",
+            data: {apiKey: api_key, ipAddress: ip},
+            success: function(data) {
+                    $("body").append("<pre>"+ JSON.stringify(data,"",2)+"</pre>");
+            }
+        });
+    });
+
+
