@@ -15,57 +15,42 @@
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-  <div class="top-color">
-    <div class="header-wrapper">
+  <div class="app-container">
+    <div class="form-container">
       <h1 class="ip-header">
         IP Address Tracker
       </h1>
-      <div class="input-group search-bar">
+      <div class="search-bar">
         <div class="form-outline">
           <input id="search-ip" placeholder="Search for any IP address or domain"  type="search" id="form1" class="form-control" />
+          <button id="search-button" type="button" class="btn btn-dark">
+            <img src="/images/icon-arrow.svg" alt="arrow image">
+          </button>
         </div>
-        <button id="search-button" type="button" class="btn btn-dark">
-          <img src="/images/icon-arrow.svg" alt="arrow image">
-        </button>
       </div>
     </div>
   </div>
   <div class="modal-wrapper">
-    <div class="card-modal">
-      <div class="card-modal-inner">
-        <ul class="list-group-modal">
-          <li class="list-group-modal-item">IP Address
-            <span id="ip-address">192.192</span>
-          </li>
-          <hr class="hr-separation">
-          <li class="list-group-modal-item">Location
-            <span id="ip-location">Btooklyn</span>
-          </li>
-          <hr class="hr-separation">
-          <li class="list-group-modal-item">Timezone
-            <span id="ip-time">UTC</span>
-          </li>
-          <hr class="hr-separation">
-          <li class="list-group-modal-item">ISP
-            <span id="ip-name">SpaceX</span>
-          </li>
-        </ul>
+      <div class="modal-inner">
+        <div class="modal-group block-separator">
+          <h6 class="list-group-modal-item">IP Address</h6>
+          <span id="ip-address"></span>
+        </div>
+        <div class="modal-group block-separator">
+          <h6 class="list-group-modal-item">Location</h6>
+            <span id="ip-location"></span>
+        </div>
+        <div class="modal-group block-separator">
+          <h6 class="list-group-modal-item">Timezone</h6>
+            <span id="ip-time"></span>
+        </div>
+        <div class="modal-group block-separator">
+          <h6 class="list-group-modal-item">ISP</h6>
+          <span id="ip-name"></span>
+        </div>
       </div>
-    </div>
   </div>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-12">
-        <div id="mapid"></div>
-      </div>
-    </div>
-  </div>
-  
-  
-  
-  
-  
-  
+  <div id="display-map" class="map-container"></div>
   
   <!-- add offset value dynamically using the API -->
   
