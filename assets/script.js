@@ -11,9 +11,34 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 var marker = L.marker([51.5, -0.09]).addTo(mymap);
 
-const searchButton = document.getElementById('search-button');
-const searchInput = document.getElementById('search-input');
-searchButton.addEventListener('click', () => {
-  const inputValue = searchInput.value;
-  alert(inputValue);
-});
+let searchIp = document.getElementById('search-ip')
+let searchBtn = document.getElementById('search-button')
+let input
+// function searchRef(){
+//     console.log(searchIp.value)
+//     const inputValue = searchIp.value;
+//     return inputValue
+// }
+
+// searchBtn.addEventListener('click', searchRef)
+
+searchBtn.addEventListener('click', () =>{ let input = searchRef() });
+
+console.log(input)
+
+
+
+var ip = "8.8.8.8";
+    var api_key = "at_hqno4AyaM81PwU3wc5lGtnqVcadHM ";
+    $(function () {
+        $.ajax({
+
+            url: "https://geo.ipify.org/api/v1",
+            data: {apiKey: api_key, ipAddress: ip},
+            success: function(data) {
+                    $("body").append("<pre>"+ JSON.stringify(data,"",2)+"</pre>");
+            }
+        });
+    });
+
+
