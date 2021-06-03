@@ -1,8 +1,7 @@
-
-
 // pull from different file
-const secret_api ='x'
-const bypass_cors_url = 'https://cors-anywhere.herokuapp.com/'
+
+const secret_api = 'at_hqno4AyaM81PwU3wc5lGtnqVcadHM'
+const bypass_cors_url = 'https://cors.bridged.cc/'
 const api_uri = 'https://geo.ipify.org/api/'
 let current_verion = 'v1'
 
@@ -25,8 +24,8 @@ const headers_option = {
 
 
 const map = L.map('display-map', {
-  'center': [0,0],
-  'zoom': 0,
+  'center': [60,10],
+  'zoom': 8,
   'layers': [
       L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
           attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
