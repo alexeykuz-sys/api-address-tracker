@@ -8,7 +8,13 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    height: 25vh;
+    height: 30vh;
+    @include tablet{
+        height: 25vh;
+    }
+    @include large{
+        height: 20vh;
+    }
     & .form-container {
         padding: 40px;
         display: flex;
@@ -17,7 +23,7 @@
         flex-direction: column;
         & .ip-header {
             color: white;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
         & .search-bar {
             display: flex;
@@ -39,14 +45,20 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 75%;
-    height: 275px;
+    // height: 275px;
     background-color: white;
     border-radius: 10px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    @include large {
+    @include tablet{
         top: 30%;
+    }
+    @include large {
+        top: 23%;
         width: 65%;
-        height: 113px;
+        // height: 93px;
+    }
+    @include desktop{
+        top: 28%;
     }
     & .modal-inner {
         display: flex;
@@ -54,6 +66,8 @@
         justify-content: space-evenly;
         flex-direction: column;
         height: 100%;
+        padding: 15px;
+        flex: 1;
         @include large {
             flex-direction: row;
             & .modal-item-wrapper {
