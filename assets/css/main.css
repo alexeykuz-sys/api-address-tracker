@@ -37,7 +37,7 @@ body {
 
 .app-container .form-container .ip-header {
   color: white;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .app-container .form-container .search-bar {
@@ -56,7 +56,7 @@ body {
   z-index: 9999;
   display: block;
   position: absolute;
-  top: 40%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 75%;
