@@ -10,14 +10,14 @@
     background-size: cover;
     height: 25vh;
     & .form-container{
-        padding: 40px;
+        padding: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         & .ip-header {
             color: white;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         & .search-bar{
             display: flex;
@@ -34,7 +34,7 @@
     z-index: 9999;
     display: block;
     position: absolute;
-    top: 40%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 75%;
@@ -42,6 +42,9 @@
     background-color: white;
     border-radius: 10px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    @include tablet{
+        top: 45%;
+    }
     @include large{
         top: 30%;
         width: 65%;

@@ -42,7 +42,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   maxZoom: 18,
   id: 'mapbox/streets-v11',
   tileSize: 512,
-  zoomOffset: -1,
+  zoomOffset:-1,
   accessToken: 'pk.eyJ1IjoiYWxleGV5bWFwIiwiYSI6ImNrcDhvcWVvNDBheXEyeW9nd3hiYTRwYm8ifQ.3MQpyGhVFK3KDO0wVUr7og',
 }).addTo(map)
 
@@ -58,7 +58,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 updateMarker =(update_marker = [-42,42]) =>{
   
-     map.setView(update_marker, 15) //setting the view and zoom
+     map.setView(update_marker, 16) //setting the view and zoom
   L.marker(update_marker).addTo(map); // settting the marker  on the map
 
 }
