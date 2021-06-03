@@ -48,7 +48,7 @@ body {
   display: flex;
 }
 
-.app-container .form-container .search-bar .form-outline #search-button {
+.app-container .form-container .search-bar #search-ip {
   cursor: pointer;
 }
 
@@ -86,23 +86,28 @@ body {
   .modal-wrapper .modal-inner {
     flex-direction: row;
   }
+  .modal-wrapper .modal-inner .modal-item-wrapper {
+    padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .modal-wrapper .modal-inner .modal-item-wrapper #ip-time::before {
+    content: 'GMT ';
+  }
   .modal-wrapper .modal-inner .modal-item-wrapper:not(:last-child) {
     border-right: 2px solid #969696;
-    padding: 15px;
     height: 70%;
   }
 }
 
-.modal-wrapper .modal-inner .modal-item-wrapper {
-  padding: 5px;
-}
-
-.modal-wrapper .modal-inner .modal-item-wrapper .list-group-modal-item {
+.modal-wrapper .list-group-modal-item {
   font-size: 16.2px;
   color: #969696;
 }
 
-.modal-wrapper .modal-inner .modal-item-wrapper .ip_details {
+.modal-wrapper .ip_details {
   font-size: 18px;
   font-weight: 700;
 }

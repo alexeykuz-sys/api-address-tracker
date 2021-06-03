@@ -4,12 +4,12 @@
 @import "buttons";
 
 .app-container {
-    background-image: url('/images/pattern-bg.png');
+    background-image: url("/images/pattern-bg.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     height: 25vh;
-    & .form-container{
+    & .form-container {
         padding: 40px;
         display: flex;
         align-items: center;
@@ -19,18 +19,19 @@
             color: white;
             margin-bottom: 30px;
         }
-        & .search-bar{
+        & .search-bar {
             display: flex;
-            & .form-outline{
+            & .form-outline {
                 display: flex;
-                & #search-button {
-                    cursor: pointer;
-                }
+            }
+            & #search-ip{
+                cursor: pointer;
+
             }
         }
     }
 }
-.modal-wrapper{
+.modal-wrapper {
     z-index: 9999;
     display: block;
     position: absolute;
@@ -42,51 +43,54 @@
     background-color: white;
     border-radius: 10px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    @include large{
+    @include large {
         top: 30%;
         width: 65%;
         height: 113px;
     }
-    & .modal-inner{
+    & .modal-inner {
         display: flex;
         align-items: center;
         justify-content: space-evenly;
         flex-direction: column;
         height: 100%;
-        @include large{
+        @include large {
             flex-direction: row;
-            & .modal-item-wrapper:not(:last-child){
+            & .modal-item-wrapper {
+                padding: 15px 25px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                & #ip-time::before{
+                    content: 'GMT ';
+                }
+            }
+            & .modal-item-wrapper:not(:last-child) {
                 border-right: 2px solid $darkGrey;
-                padding: 15px;
                 height: 70%;
             }
         }
-        & .modal-item-wrapper{
-            padding: 5px;
-            
-
-            & .list-group-modal-item{
-                font-size: $fontSize *.9;
-                font-weight: weight(normal);
-                color: $darkGrey;
-            }
-            
-            & .ip_details {
-                font-size: $fontSize;
-                font-weight: weight(bold);
-            }
-        }
     }
-
+    & .list-group-modal-item {
+        font-size: $fontSize * 0.9;
+        font-weight: weight(normal);
+        color: $darkGrey;
+    }
+    & .ip_details {
+        font-size: $fontSize;
+        font-weight: weight(bold);
+    }
 }
 .map-container {
     width: 100%;
     height: 80vh;
-    
-    
 }
 
-
-
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
