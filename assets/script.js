@@ -1,6 +1,7 @@
 // pull from different file
 
 const secret_api = 'at_hqno4AyaM81PwU3wc5lGtnqVcadHM'
+const mapbox_key = 'pk.eyJ1IjoiYWxleGV5bWFwIiwiYSI6ImNrcDhvcWVvNDBheXEyeW9nd3hiYTRwYm8ifQ.3MQpyGhVFK3KDO0wVUr7og'
 const bypass_cors_url = 'https://cors.bridged.cc/'
 const api_uri = 'https://geo.ipify.org/api/'
 let current_verion = 'v1'
@@ -21,23 +22,44 @@ const headers_option = {
       'Access-Control-Allow-Origin': '*',
   }
 }
+// from Leafletjs
+//  creates variable map with class 'display-map' and gives it parameters
+// const map = L.map('display-map', {
+//   'center': [0,0],
+//   'zoom': 0,
+//   'layers': [
+//       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+//         })
+//   ]
+// })
 
 
-const map = L.map('display-map', {
-  'center': [60,10],
-  'zoom': 8,
-  'layers': [
-      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        })
-  ]
-})
+const map = L.map('display-map')
+
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+  attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+  maxZoom: 18,
+  id: 'mapbox/streets-v11',
+  tileSize: 512,
+  zoomOffset: -1,
+  accessToken: 'pk.eyJ1IjoiYWxleGV5bWFwIiwiYSI6ImNrcDhvcWVvNDBheXEyeW9nd3hiYTRwYm8ifQ.3MQpyGhVFK3KDO0wVUr7og',
+}).addTo(map)
+
 
 //creates a marker and map view with a variable map and updatE_marker
 
+// updateMarker =(update_marker = [-42,42]) =>{
+//   map.setView(update_marker, 15) //setting the view and zoom
+//   L.marker(update_marker).addTo(map); // settting the marker  on the map
+
+// }
+
+
 updateMarker =(update_marker = [-42,42]) =>{
-  map.setView(update_marker, 13) //setting the view
-  L.marker(update_marker).addTo(map); // settting the marker  
+  
+     map.setView(update_marker, 15) //setting the view and zoom
+  L.marker(update_marker).addTo(map); // settting the marker  on the map
 
 }
 
@@ -56,7 +78,7 @@ getIPDetails = (default_ip) => {
     current_zone.innerHTML = data.location.timezone;
     current_isp.innerHTML = data.isp;
 
-    updateMarker(data.location.lat, data.location.lng);
+    updateMarker([data.location.lat, data.location.lng]);
   })
   .catch(error => {
     alert("Unable to get IP details")

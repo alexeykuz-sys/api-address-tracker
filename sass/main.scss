@@ -8,6 +8,7 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+    height: 25vh;
     & .form-container{
         padding: 40px;
         display: flex;
@@ -36,33 +37,51 @@
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70%;
-    height: 183px;
+    width: 75%;
+    height: 275px;
     background-color: white;
     border-radius: 10px;
-    @include tablet{
-        
-        width: 40%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    @include large{
+        top: 30%;
+        width: 65%;
         height: 113px;
     }
     & .modal-inner{
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-evenly;
         flex-direction: column;
-        padding: 20px;
-        @include tablet{
+        height: 100%;
+        @include large{
             flex-direction: row;
+            & .modal-item-wrapper:not(:last-child){
+                border-right: 2px solid $darkGrey;
+                padding: 15px;
+                height: 70%;
+            }
         }
-        & .modal-group{
+        & .modal-item-wrapper{
             padding: 5px;
+            
+
+            & .list-group-modal-item{
+                font-size: $fontSize *.9;
+                font-weight: weight(normal);
+                color: $darkGrey;
+            }
+            
+            & .ip_details {
+                font-size: $fontSize;
+                font-weight: weight(bold);
+            }
         }
     }
 
 }
 .map-container {
     width: 100%;
-    height: 70vh;
+    height: 80vh;
     
     
 }
