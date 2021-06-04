@@ -4,6 +4,7 @@ const secret_api = 'at_hqno4AyaM81PwU3wc5lGtnqVcadHM'
 const mapbox_key = 'pk.eyJ1IjoiYWxleGV5bWFwIiwiYSI6ImNrcDhvcWVvNDBheXEyeW9nd3hiYTRwYm8ifQ.3MQpyGhVFK3KDO0wVUr7og'
 const bypass_cors_url = 'https://cors.bridged.cc/'
 const api_uri = 'https://geo.ipify.org/api/'
+const home_api_uri = 'https://api.ipify.org?format=json'
 let current_verion = 'v1'
 
 // form elements
@@ -63,16 +64,47 @@ updateMarker =(update_marker = [-42,42]) =>{
 
 }
 
+
+// const getIP = (url, type="text") => {
+//   fetch(`${url}?format=${type}`).then(res => {
+//     if(!res) return "No response";
+//     if(type === "text"){
+//       return res.text()
+//     } else {
+//       return res.json()
+//     }
+//   }).then(data => buildURL("https://google.com","search",data))
+// }
+// getIP("https://api.ipify.org")
+// const buildURL = (url,params,ip) => {
+//   const amazingURL = new URL(url)
+//   amazingURL.searchParams.append(params, ip)
+//   console.log(amazingURL.href)
+// }
+
 getIPDetails = (default_ip) => {
   if(default_ip == undefined){
-      var ip_url = `${bypass_cors_url}${api_uri}${current_verion}?apiKey=${secret_api}`
-  }
+    var home_ip_url = `${bypass_cors_url}${home_api_uri}`    
+    console.log((home_ip_url))
+  fetch(home_ip_url, headers_option)
+  .then(result => {
+    result.text();
+    console.log(result)
+  })
+  .then(data => {
+    console.log(data)
+  })
+}
   else {
       var ip_url = `${bypass_cors_url}${api_uri}${current_verion}?apiKey=${secret_api}&ipAddress=${default_ip}`
   }
   fetch(ip_url, headers_option)
-  .then(result => result.json())
+  .then(result => {
+    result.json();
+    console.log(result)
+  })
   .then(data => {
+    console.log(data)
     current_ip.innerHTML = data.ip;
     current_town.innerHTML = `${data.location.city} ${data.location.country} ${data.location.postalCode}`;
     current_zone.innerHTML = data.location.timezone;
