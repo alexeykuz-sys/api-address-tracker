@@ -6,13 +6,11 @@
 
 
 
-This is a solution to the [IP address tracker challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ip-address-tracker-I8-0yYAH0). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
-
+This is a solution to the [IP address tracker challenge on Frontend Mentor](https://api-address-tracker.vercel.app/).
 ## Table of contents
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -34,10 +32,6 @@ Users should be able to:
 - See their own IP address on the map on the initial page load
 - Search for any IP addresses or domains and see the key information and location
 
-### Screenshot
-
-![](./screenshot.jpg)
-
 
 ### Links
 
@@ -55,7 +49,24 @@ Users should be able to:
 
 ### What I learned
 
-I learned how to use map APIs and render the data. 
+I learned how to use map APIs and render the data from API.
+I have also used two different maps sources. Here is extra code for Open Street Map
+
+const map = L.map('display-map', {
+  'center': [0,0],
+  'zoom': 0,
+  'layers': [
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        })
+  ]
+})
+
+updateMarker =(update_marker = [-42,42]) =>{
+  map.setView(update_marker, 15) //setting the view and zoom
+  L.marker(update_marker).addTo(map); // settting the marker  on the map
+
+}`
 
 ## Acknowledgments
 

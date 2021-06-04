@@ -22,18 +22,8 @@ const headersOption = {
       'Access-Control-Allow-Origin': '*',
   }
 }
-// from Leafletjs
-//  creates variable map with class 'display-map' and gives it parameters
-// const map = L.map('display-map', {
-//   'center': [0,0],
-//   'zoom': 0,
-//   'layers': [
-//       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-//         })
-//   ]
-// })
 
+// from Leafletjs creates variable map with class 'display-map' and gives it parameters
 
 const map = L.map('display-map')
 
@@ -48,13 +38,6 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 
 //creates a marker and map view with a variable map and updatE_marker
-
-// updateMarker =(update_marker = [-42,42]) =>{
-//   map.setView(update_marker, 15) //setting the view and zoom
-//   L.marker(update_marker).addTo(map); // settting the marker  on the map
-
-// }
-
 
 updateMarker =(updateMarker = [-42,42]) =>{
   
