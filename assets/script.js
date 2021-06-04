@@ -4,7 +4,7 @@ const secret_api = 'at_hqno4AyaM81PwU3wc5lGtnqVcadHM'
 const mapbox_key = 'pk.eyJ1IjoiYWxleGV5bWFwIiwiYSI6ImNrcDhvcWVvNDBheXEyeW9nd3hiYTRwYm8ifQ.3MQpyGhVFK3KDO0wVUr7og'
 const bypass_cors_url = 'https://cors.bridged.cc/'
 const api_uri = 'https://geo.ipify.org/api/'
-const home_api_uri = 'https://api.ipify.org?format=json'
+const home_api_uri = 'https://api.ipify.org'
 let current_verion = 'v1'
 
 // form elements
@@ -64,45 +64,29 @@ updateMarker =(update_marker = [-42,42]) =>{
 
 }
 
+// show user's ip location
+const userIp = async () => {
+  const response = await fetch("https://api.ipify.org/?format=json");
+  const data = await response.json();
+  return data;
+}
+userIp()
+  .then(data => {
+    getIPDetails(data['ip'])
+    })
 
-// const getIP = (url, type="text") => {
-//   fetch(`${url}?format=${type}`).then(res => {
-//     if(!res) return "No response";
-//     if(type === "text"){
-//       return res.text()
-//     } else {
-//       return res.json()
-//     }
-//   }).then(data => buildURL("https://google.com","search",data))
-// }
-// getIP("https://api.ipify.org")
-// const buildURL = (url,params,ip) => {
-//   const amazingURL = new URL(url)
-//   amazingURL.searchParams.append(params, ip)
-//   console.log(amazingURL.href)
-// }
 
 getIPDetails = (default_ip) => {
   if(default_ip == undefined){
-    var home_ip_url = `${bypass_cors_url}${home_api_uri}`    
-    console.log((home_ip_url))
-  fetch(home_ip_url, headers_option)
-  .then(result => {
-    result.text();
-    console.log(result)
-  })
-  .then(data => {
-    console.log(data)
-  })
-}
+    var ip_url = `${bypass_cors_url}${api_uri}${current_verion}?apiKey=${secret_api}` 
+  }
   else {
-      var ip_url = `${bypass_cors_url}${api_uri}${current_verion}?apiKey=${secret_api}&ipAddress=${default_ip}`
+    var ip_url = `${bypass_cors_url}${api_uri}${current_verion}?apiKey=${secret_api}&ipAddress=${default_ip}`
   }
   fetch(ip_url, headers_option)
-  .then(result => {
-    result.json();
-    console.log(result)
-  })
+  .then(results => 
+    results.json()
+  )
   .then(data => {
     console.log(data)
     current_ip.innerHTML = data.ip;
