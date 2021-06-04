@@ -1,24 +1,23 @@
 // pull from different file
 
-const secret_api = 'at_hqno4AyaM81PwU3wc5lGtnqVcadHM'
-const mapbox_key = 'pk.eyJ1IjoiYWxleGV5bWFwIiwiYSI6ImNrcDhvcWVvNDBheXEyeW9nd3hiYTRwYm8ifQ.3MQpyGhVFK3KDO0wVUr7og'
-const bypass_cors_url = 'https://cors.bridged.cc/'
-const api_uri = 'https://geo.ipify.org/api/'
-const home_api_uri = 'https://api.ipify.org'
-let current_verion = 'v1'
+const secretApi = 'at_hqno4AyaM81PwU3wc5lGtnqVcadHM'
+const mapboxKey = 'pk.eyJ1IjoiYWxleGV5bWFwIiwiYSI6ImNrcDhvcWVvNDBheXEyeW9nd3hiYTRwYm8ifQ.3MQpyGhVFK3KDO0wVUr7og'
+const bypassCorsUrl = 'https://cors.bridged.cc/'
+const apiUri = 'https://geo.ipify.org/api/'
+let currentVerion = 'v1'
 
 // form elements
 let searchIp = document.getElementById('search-ip');
 let searchBtn = document.getElementById('search-button');
 
 // elements to update 
-let current_ip = document.getElementById('ip-address');
-let current_town = document.getElementById('ip-location');
-let current_zone = document.getElementById('ip-time');
-let current_isp = document.getElementById('ip-name');
+let currentIp = document.getElementById('ip-address');
+let currentTown = document.getElementById('ip-location');
+let currentZone = document.getElementById('ip-time');
+let currentIsp = document.getElementById('ip-name');
 
 
-const headers_option = {
+const headersOption = {
   headers: {
       'Access-Control-Allow-Origin': '*',
   }
@@ -57,10 +56,10 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 // }
 
 
-updateMarker =(update_marker = [-42,42]) =>{
+updateMarker =(updateMarker = [-42,42]) =>{
   
-     map.setView(update_marker, 16) //setting the view and zoom
-  L.marker(update_marker).addTo(map); // settting the marker  on the map
+     map.setView(updateMarker, 16) //setting the view and zoom
+  L.marker(updateMarker).addTo(map); // settting the marker  on the map
 
 }
 
@@ -76,23 +75,23 @@ userIp()
     })
 
 
-getIPDetails = (default_ip) => {
-  if(default_ip == undefined){
-    var ip_url = `${bypass_cors_url}${api_uri}${current_verion}?apiKey=${secret_api}` 
+getIPDetails = (defaultIp) => {
+  if(defaultIp == undefined){
+    var ipUrl = `${bypassCorsUrl}${apiUri}${currentVerion}?apiKey=${secretApi}` 
   }
   else {
-    var ip_url = `${bypass_cors_url}${api_uri}${current_verion}?apiKey=${secret_api}&ipAddress=${default_ip}`
+    var ipUrl = `${bypassCorsUrl}${apiUri}${currentVerion}?apiKey=${secretApi}&ipAddress=${defaultIp}`
   }
-  fetch(ip_url, headers_option)
+  fetch(ipUrl, headersOption)
   .then(results => 
     results.json()
   )
   .then(data => {
     console.log(data)
-    current_ip.innerHTML = data.ip;
-    current_town.innerHTML = `${data.location.city} ${data.location.country} ${data.location.postalCode}`;
-    current_zone.innerHTML = data.location.timezone;
-    current_isp.innerHTML = data.isp;
+    currentIp.innerHTML = data.ip;
+    currentTown.innerHTML = `${data.location.city} ${data.location.country} ${data.location.postalCode}`;
+    currentZone.innerHTML = data.location.timezone;
+    currentIsp.innerHTML = data.isp;
 
     updateMarker([data.location.lat, data.location.lng]);
   })
