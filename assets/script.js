@@ -60,10 +60,10 @@ userIp()
 
 getIPDetails = (defaultIp) => {
   if(defaultIp == undefined){
-    var ipUrl = `${bypassCorsUrl}${apiUri}${currentVerion}?apiKey=${secretApi}` 
+    let ipUrl = `${bypassCorsUrl}${apiUri}${currentVerion}?apiKey=${secretApi}` 
   }
   else {
-    var ipUrl = `${bypassCorsUrl}${apiUri}${currentVerion}?apiKey=${secretApi}&ipAddress=${defaultIp}`
+    let ipUrl = `${bypassCorsUrl}${apiUri}${currentVerion}?apiKey=${secretApi}&ipAddress=${defaultIp}`
   }
   fetch(ipUrl, headersOption)
   .then(results => 
